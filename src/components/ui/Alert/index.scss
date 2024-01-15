@@ -1,0 +1,59 @@
+// Error--->
+$ErborderColor:rgb(255, 25, 25,0.322);
+$ErbgColor:rgb(192 29 29 / 15%);
+$Ercolor:#ef8d8dfa;
+// Success -->
+$SuborderColor:rgb(0, 255, 0,0.322);
+$SubgColor:rgb(246,238,9,0.127);
+$Sucolor:#7acf58d6;
+// Defaulf
+$DfborderColor:#c8c8c8;
+$DfbgColor:rgb(29 31 32 / 71%);
+$Dfcolor:#c8c8c8;
+// Info
+$InborderColor:#646cff;
+$InbgColor:rgb(100 108 255 /8%);
+$Incolor:#bcc0ff;
+// Warning
+$WrborderColor:rgb(255, 213, 0,0.793);
+$WrbgColor:rgb(255 197 23 / 5%);
+$Wrcolor:#fcd253;
+@mixin alert($name,$borderColor,$bgColor,$color){
+	.#{$name}{
+	border: 2px dotted $borderColor;
+	border-radius: 0.8rem;
+	padding: 1.3rem;
+	background-color: $bgColor;
+	color:$color ;
+	margin-bottom: 1rem;
+	.alert-header{
+		display: flex;
+		align-items: center;	
+		justify-content: space-between;
+		.title{
+			display: flex;
+		align-items: center;
+		 font-size: 1.2rem;
+		}
+		span svg{
+			margin-right: 0.6 rem;
+		}
+		.close{
+			cursor: pointer;
+		}
+	}
+	p{
+		margin-top: 1rem;
+		font-size: 0.9rem;
+		font-weight: 500;
+		line-height: 1.5rem;
+	}
+}
+}
+@include alert("alert-danger",$ErborderColor,$ErbgColor,$Ercolor );
+@include alert("alert-success",$SuborderColor,$SubgColor,$Sucolor );
+@include alert("alert-warning",$WrborderColor,$WrbgColor,$Wrcolor );
+@include alert("alert-default",$DfborderColor,$DfbgColor,$Dfcolor );
+@include alert("alert-info",$InborderColor,$InbgColor,$Incolor );
+
+
